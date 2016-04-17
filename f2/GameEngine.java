@@ -11,9 +11,11 @@ import javax.swing.Timer;
 
 
 public class GameEngine implements KeyListener {
-	GamePanel gp;	
+	GamePanel gp;
+
 	private SpaceShip v;	
 	private Timer timer;
+	private double difficulty = 0.1;
 	
 	public GameEngine(GamePanel gp, SpaceShip v) {
 		this.gp = gp;
@@ -34,24 +36,34 @@ public class GameEngine implements KeyListener {
 	
 	
 	public void start(){
-
 		timer.start();
-
 	}
 	
 	private void process(){
-		
+
 		gp.updateGameUI();
 		
 	}
 	
 	void controlVehicle(KeyEvent e) {
-		//do nothing
+		switch (e.getKeyCode()) {
+		case KeyEvent.VK_LEFT:
+			v.move(-1);
+			break;
+		case KeyEvent.VK_RIGHT:
+			v.move(1);
+			break;
+		case KeyEvent.VK_D:
+			difficulty += 0.1;
+			break;
+		}
 	}
+	
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
-		//do nothing
+		
+		controlVehicle(e);
 		
 	}
 	
