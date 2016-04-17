@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel {
-	
 	private BufferedImage bi;	
 	Graphics2D big;
 	ArrayList<Sprite> sprites = new ArrayList<Sprite>();
@@ -19,8 +18,9 @@ public class GamePanel extends JPanel {
 		big.setBackground(Color.BLACK);
 	}
 
-	public void updateGameUI(){
-		big.clearRect(0, 0, 400, 600);  
+	public void updateGameUI() {
+		big.clearRect(0, 0, 400, 600); 
+
 		for(Sprite s : sprites){
 			s.draw(big);
 		}
