@@ -61,7 +61,20 @@ public class GameEngine implements KeyListener {
 		}
 		
 		gp.updateGameUI();
-
+		
+		Rectangle2D.Double vr = v.getRectangle();
+		Rectangle2D.Double er;
+		for(Enemy e : enemies){
+			er = e.getRectangle();
+			if(er.intersects(vr)){
+				die();
+				return;
+			}
+		}
+	}
+	
+	public void die(){
+		timer.stop();
 	}
 	
 	void controlVehicle(KeyEvent e) {
@@ -77,7 +90,6 @@ public class GameEngine implements KeyListener {
 			break;
 		}
 	}
-	
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
