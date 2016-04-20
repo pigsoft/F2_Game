@@ -9,9 +9,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.Timer;
 
-
 public class GameEngine implements KeyListener, GameReporter{
-	GamePanel gp;
+	GamePanel gp;	
 	private ArrayList<Enemy> enemies = new ArrayList<Enemy>();	
 	private SpaceShip v;		
 	private Timer timer;	
@@ -54,11 +53,11 @@ public class GameEngine implements KeyListener, GameReporter{
 		while(e_iter.hasNext()){
 			Enemy e = e_iter.next();
 			e.proceed();
-
 			
 			if(!e.isAlive()){
 				e_iter.remove();
-				gp.sprites.remove(e); 
+				gp.sprites.remove(e);
+				score += 100;
 			}
 		}
 		
