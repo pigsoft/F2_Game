@@ -15,6 +15,5 @@ public class Main {
 		frame.addKeyListener(engine);
 		frame.getContentPane().add(gp, BorderLayout.CENTER);
 		frame.setVisible(true);
-		engine.start();
 	}
 }
