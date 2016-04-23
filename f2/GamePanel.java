@@ -1,5 +1,6 @@
 package f2;
 
+import java.awt.Font;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -23,7 +24,8 @@ public class GamePanel extends JPanel {
 		big.clearRect(0, 0, 400, 600);
 		
 		big.setColor(Color.WHITE);		
-		big.drawString(String.format("%08d", reporter.getScore()), 300, 20);
+		big.drawString(String.format("%08d", reporter.getScore()), 260, 20);
+
 		for(Sprite s : sprites){
 			s.draw(big);
 		}
@@ -37,4 +39,15 @@ public class GamePanel extends JPanel {
 		g2d.drawImage(bi, null, 0, 0);
 	}
 
+	public void start(){
+		big.clearRect(0, 0, 400, 600);
+
+		Font myFont = new Font ("default", 1, 25);
+		big.setFont (myFont);
+
+		big.setColor(Color.WHITE);
+		big.drawString("START", 180, 300);
+
+		repaint();
+	}
 }

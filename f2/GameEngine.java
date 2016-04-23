@@ -34,10 +34,12 @@ public class GameEngine implements KeyListener, GameReporter{
 		timer.setRepeats(true);
 		
 	}
-	/*
-	public void start(){
-		timer.start();
-	}*/
+	
+	private void start(){
+		if(!checkDead) 
+			timer.start();
+		gp.start();
+	}
 	
 	private void generateEnemy(){
 		Enemy e = new Enemy((int)(Math.random()*390), 30);
@@ -92,7 +94,7 @@ public class GameEngine implements KeyListener, GameReporter{
 			difficulty += 0.1;
 			break;
 		case KeyEvent.VK_SPACE:
-			if(!checkDead) timer.start();
+			start();
 			break;
 		}
 	}
