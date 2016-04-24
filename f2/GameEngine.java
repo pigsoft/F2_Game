@@ -16,7 +16,7 @@ public class GameEngine implements KeyListener, GameReporter{
 	private Timer timer;	
 	private long score = 0;
 	private double difficulty = 0.1;
-	private boolean checkDead = false;
+	private boolean checkDead = true;
 	
 	public GameEngine(GamePanel gp, SpaceShip v) {
 		this.gp = gp;
@@ -36,9 +36,12 @@ public class GameEngine implements KeyListener, GameReporter{
 	}
 	
 	private void start(){
-		if(!checkDead) 
+		if(checkDead) {
+			score = 0;
 			timer.start();
-		gp.start();
+			gp.start();
+		}
+		checkDead = false;
 	}
 	
 	private void generateEnemy(){
@@ -80,6 +83,7 @@ public class GameEngine implements KeyListener, GameReporter{
 	public void die(){
 		timer.stop();
 		checkDead = true;
+		gp.end();
 	}
 	
 	void controlVehicle(KeyEvent e) {

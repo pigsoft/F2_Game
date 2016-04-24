@@ -41,13 +41,17 @@ public class GamePanel extends JPanel {
 
 	public void start(){
 		big.clearRect(0, 0, 400, 600);
-
 		Font myFont = new Font ("default", 1, 25);
 		big.setFont (myFont);
-
 		big.setColor(Color.WHITE);
 		big.drawString("START", 180, 300);
+		repaint();
+	}
 
+	public void end(){
+		big.clearRect(0, 0, 400, 600);
+		big.setColor(Color.WHITE);
+		big.drawString("GAME OVER", 120, 300);
 		repaint();
 	}
 }
